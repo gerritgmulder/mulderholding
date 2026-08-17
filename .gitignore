@@ -1,0 +1,10 @@
+# Commercieel materiaal — hoort NIET in de openbare website-repo
+maak-deck.js
+*.pptx
+*.pdf
+slide-*.jpg
+
+# Werkbestanden
+node_modules/
+package.json
+package-lock.json
