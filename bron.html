@@ -98,10 +98,8 @@
     padding: 22px 0 18px;
   }
   .wordmark { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-  .wordmark svg.merk { height: 30px; width: auto; display: block; }
-  /* Logokleuren zijn merkvast (uit het originele logo), los van de sitetokens */
-  .wordmark svg.merk .navy { fill: var(--merk-navy); stroke: var(--merk-navy); }
-  .wordmark svg.merk .oker { fill: #e0a32a; stroke: #e0a32a; }
+  /* Het originele beeldmerk (aangeleverd bestand), witte achtergrond doorzichtig gemaakt */
+  .wordmark img.merk { height: 32px; width: auto; display: block; }
   .wordmark .naamblok { display: grid; gap: 1px; }
   .wordmark .naam {
     font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em;
@@ -295,12 +293,7 @@
 <div class="wrap">
   <header class="top">
     <a class="wordmark" href="#">
-      <svg class="merk" viewBox="-6 -6 232 184" role="img" aria-label="Logo Mulder Holding">
-        <polygon class="navy" points="4,4 46,34 46,162 4,168" stroke-width="10" stroke-linejoin="round"/>
-        <polygon class="oker" points="57,46 92,80 92,162 57,124" stroke-width="6" stroke-linejoin="round"/>
-        <polygon class="oker" points="163,46 128,80 128,162 163,124" stroke-width="6" stroke-linejoin="round"/>
-        <polygon class="navy" points="216,4 174,34 174,162 216,168" stroke-width="10" stroke-linejoin="round"/>
-      </svg>
+      <img class="merk" src="data:image/png;base64,__LOGOPNG__" alt="Logo Mulder Holding">
       <span class="naamblok">
         <span class="naam">MULDER&nbsp;HOLDING</span>
         <span class="subnaam">AUTOMATISERING&nbsp;&amp;&nbsp;ADVIES</span>
