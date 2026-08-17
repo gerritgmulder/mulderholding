@@ -8,3 +8,6 @@ slide-*.jpg
 node_modules/
 package.json
 package-lock.json
+
+# Schermbeelden van klantwerk (niet publiek)
+schermbeeld-*.png
