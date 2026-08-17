@@ -227,6 +227,30 @@
     font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.06em; margin-bottom: 4px;
   }
 
+  /* ---- Praktijkcases ---- */
+  .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 860px) { .cases { grid-template-columns: 1fr; } }
+  .case {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 22px; box-shadow: var(--shadow);
+  }
+  .case .c-kop {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--muted);
+    letter-spacing: 0.08em; padding-bottom: 10px; border-bottom: 1px solid var(--line);
+    margin-bottom: 16px;
+  }
+  .case .c-stat {
+    font-family: 'Bricolage Grotesque', sans-serif; font-size: 34px; font-weight: 700;
+    color: var(--accent-ink); line-height: 1.1; letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+  .case .c-stat .pijl { color: var(--copper); }
+  .case .c-stat .eenheid {
+    font-family: 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 400;
+    color: var(--muted); letter-spacing: 0.06em;
+  }
+  .case p { font-size: 14px; color: var(--ink-2); margin-top: 10px; }
+
   /* ---- Werkwijze: echte volgorde, dus genummerd ---- */
   .stappen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: stap; }
   @media (max-width: 860px) { .stappen { grid-template-columns: repeat(2, 1fr); } }
@@ -362,6 +386,34 @@
            slimmer. Praktisch advies dat rekening houdt met de mensen die het werk doen.</p>
       </div>
       <div class="lever"><strong>JE KRIJGT</strong> Een verbeterplan met stappen die je deze maand al kunt zetten.</div>
+    </div>
+  </section>
+
+  <section id="cases">
+    <div class="sectiekop">
+      <h2>Uit de praktijk</h2>
+      <span class="lijn"></span>
+      <span class="label">DRIE RESULTATEN</span>
+    </div>
+    <div class="cases">
+      <article class="case">
+        <div class="c-kop">LOGISTIEK WARENHUIS</div>
+        <div class="c-stat">5,5 <span class="pijl">→</span> 2 <span class="eenheid">FTE</span></div>
+        <p>Door repeterend werk in de logistieke administratie te automatiseren kon de
+           logistieke staf terug van 5,5 naar 2 fte — met dezelfde output.</p>
+      </article>
+      <article class="case">
+        <div class="c-kop">INTERNATIONALE RETAILER</div>
+        <div class="c-stat">−7% <span class="eenheid">OVERHEAD</span></div>
+        <p>Overheadkosten structureel met 7% verlaagd. In euro's: een besparing van
+           tienduizenden euro's per jaar.</p>
+      </article>
+      <article class="case">
+        <div class="c-kop">NETWERK VAN ADVIESBUREAUS</div>
+        <div class="c-stat">3<span class="pijl">×</span> <span class="eenheid">SNELLER</span></div>
+        <p>Rapportages in eigen beheer gebracht: licenties zoals Power BI opgezegd,
+           tussenpersonen en externe bureaus overbodig. Doorlooptijden drie keer zo kort.</p>
+      </article>
     </div>
   </section>
 
