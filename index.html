@@ -95,14 +95,16 @@
     padding: 22px 0 18px;
   }
   .wordmark { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-  .wordmark .blok {
-    width: 34px; height: 34px; border-radius: 8px;
-    background: var(--accent); color: #f4f5f7;
-    display: grid; place-items: center;
-    font-family: 'Bricolage Grotesque', sans-serif; font-size: 19px; font-weight: 700;
-  }
+  .wordmark svg.merk { height: 30px; width: auto; display: block; }
+  .wordmark svg.merk .navy { fill: var(--accent); }
+  .wordmark svg.merk .oker { fill: var(--copper); }
+  .wordmark .naamblok { display: grid; gap: 1px; }
   .wordmark .naam {
     font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em;
+  }
+  .wordmark .subnaam {
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.22em;
+    color: var(--copper);
   }
   .top a.mail {
     font-family: 'IBM Plex Mono', monospace; font-size: 13px;
@@ -289,8 +291,16 @@
 <div class="wrap">
   <header class="top">
     <a class="wordmark" href="#">
-      <span class="blok">M</span>
-      <span class="naam">MULDER&nbsp;HOLDING</span>
+      <svg class="merk" viewBox="0 0 220 172" role="img" aria-label="Logo Mulder Holding">
+        <polygon class="navy" points="8,6 64,34 64,148 8,166"/>
+        <polygon class="oker" points="76,44 104,62 104,150 76,168"/>
+        <polygon class="oker" points="144,44 116,62 116,150 144,168"/>
+        <polygon class="navy" points="212,6 156,34 156,148 212,166"/>
+      </svg>
+      <span class="naamblok">
+        <span class="naam">MULDER&nbsp;HOLDING</span>
+        <span class="subnaam">AUTOMATISERING&nbsp;&amp;&nbsp;ADVIES</span>
+      </span>
     </a>
     <a class="mail" href="tel:+31621873648">06 21 87 36 48</a>
   </header>

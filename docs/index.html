@@ -7,7 +7,7 @@
 <meta property="og:title" content="Mulder Holding">
 <meta property="og:description" content="AI-automatiseringen, analyses, testrapportages en procesadvies voor het mkb.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a3a63'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='sans-serif' font-size='17' font-weight='bold' fill='%23f4f5f7'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20220%20172%22%3E%20%20%20%3Cpolygon%20fill%3D%22%231a3a63%22%20points%3D%228%2C6%2064%2C34%2064%2C148%208%2C166%22/%3E%20%20%20%3Cpolygon%20fill%3D%22%23b58a10%22%20points%3D%2276%2C44%20104%2C62%20104%2C150%2076%2C168%22/%3E%20%20%20%3Cpolygon%20fill%3D%22%23b58a10%22%20points%3D%22144%2C44%20116%2C62%20116%2C150%20144%2C168%22/%3E%20%20%20%3Cpolygon%20fill%3D%22%231a3a63%22%20points%3D%22212%2C6%20156%2C34%20156%2C148%20212%2C166%22/%3E%20%3C/svg%3E%20">
 </head>
 <body>
 <title>Mulder Holding</title>
@@ -107,14 +107,16 @@
     padding: 22px 0 18px;
   }
   .wordmark { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
-  .wordmark .blok {
-    width: 34px; height: 34px; border-radius: 8px;
-    background: var(--accent); color: #f4f5f7;
-    display: grid; place-items: center;
-    font-family: 'Bricolage Grotesque', sans-serif; font-size: 19px; font-weight: 700;
-  }
+  .wordmark svg.merk { height: 30px; width: auto; display: block; }
+  .wordmark svg.merk .navy { fill: var(--accent); }
+  .wordmark svg.merk .oker { fill: var(--copper); }
+  .wordmark .naamblok { display: grid; gap: 1px; }
   .wordmark .naam {
     font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em;
+  }
+  .wordmark .subnaam {
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.22em;
+    color: var(--copper);
   }
   .top a.mail {
     font-family: 'IBM Plex Mono', monospace; font-size: 13px;
@@ -301,8 +303,16 @@
 <div class="wrap">
   <header class="top">
     <a class="wordmark" href="#">
-      <span class="blok">M</span>
-      <span class="naam">MULDER&nbsp;HOLDING</span>
+      <svg class="merk" viewBox="0 0 220 172" role="img" aria-label="Logo Mulder Holding">
+        <polygon class="navy" points="8,6 64,34 64,148 8,166"/>
+        <polygon class="oker" points="76,44 104,62 104,150 76,168"/>
+        <polygon class="oker" points="144,44 116,62 116,150 144,168"/>
+        <polygon class="navy" points="212,6 156,34 156,148 212,166"/>
+      </svg>
+      <span class="naamblok">
+        <span class="naam">MULDER&nbsp;HOLDING</span>
+        <span class="subnaam">AUTOMATISERING&nbsp;&amp;&nbsp;ADVIES</span>
+      </span>
     </a>
     <a class="mail" href="tel:+31621873648">06 21 87 36 48</a>
   </header>
