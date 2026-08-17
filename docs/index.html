@@ -7,7 +7,7 @@
 <meta property="og:title" content="Mulder Holding">
 <meta property="og:description" content="AI-automatiseringen, analyses, testrapportages en procesadvies voor het mkb.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20220%20172%22%3E%20%20%20%3Cpolygon%20fill%3D%22%231a3a63%22%20points%3D%228%2C6%2064%2C34%2064%2C148%208%2C166%22/%3E%20%20%20%3Cpolygon%20fill%3D%22%23b58a10%22%20points%3D%2276%2C44%20104%2C62%20104%2C150%2076%2C168%22/%3E%20%20%20%3Cpolygon%20fill%3D%22%23b58a10%22%20points%3D%22144%2C44%20116%2C62%20116%2C150%20144%2C168%22/%3E%20%20%20%3Cpolygon%20fill%3D%22%231a3a63%22%20points%3D%22212%2C6%20156%2C34%20156%2C148%20212%2C166%22/%3E%20%3C/svg%3E%20">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%22-6%20-6%20232%20184%22%3E%20%20%20%3Cpolygon%20fill%3D%22%231e3766%22%20stroke%3D%22%231e3766%22%20stroke-width%3D%2210%22%20stroke-linejoin%3D%22round%22%20points%3D%224%2C4%2046%2C34%2046%2C162%204%2C168%22/%3E%20%20%20%3Cpolygon%20fill%3D%22%23e0a32a%22%20stroke%3D%22%23e0a32a%22%20stroke-width%3D%226%22%20stroke-linejoin%3D%22round%22%20points%3D%2257%2C46%2092%2C80%2092%2C162%2057%2C124%22/%3E%20%20%20%3Cpolygon%20fill%3D%22%23e0a32a%22%20stroke%3D%22%23e0a32a%22%20stroke-width%3D%226%22%20stroke-linejoin%3D%22round%22%20points%3D%22163%2C46%20128%2C80%20128%2C162%20163%2C124%22/%3E%20%20%20%3Cpolygon%20fill%3D%22%231e3766%22%20stroke%3D%22%231e3766%22%20stroke-width%3D%2210%22%20stroke-linejoin%3D%22round%22%20points%3D%22216%2C4%20174%2C34%20174%2C162%20216%2C168%22/%3E%20%3C/svg%3E%20">
 </head>
 <body>
 <title>Mulder Holding</title>
@@ -47,6 +47,7 @@
     --copper-soft: #f7edd2;
     --raster: rgba(26, 58, 99, 0.055);
     --shadow: 0 1px 2px rgba(19, 28, 43, 0.05), 0 10px 30px rgba(19, 28, 43, 0.07);
+    --merk-navy: #1e3766;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -64,6 +65,7 @@
       --copper: #dcaf3f;
       --copper-soft: #2c230e73;
       --raster: rgba(127, 169, 221, 0.06);
+      --merk-navy: #8fb0dc;
       --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.35);
     }
   }
@@ -82,6 +84,7 @@
     --copper: #dcaf3f;
     --copper-soft: #2c230e73;
     --raster: rgba(127, 169, 221, 0.06);
+    --merk-navy: #8fb0dc;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.35);
   }
 
@@ -108,8 +111,9 @@
   }
   .wordmark { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
   .wordmark svg.merk { height: 30px; width: auto; display: block; }
-  .wordmark svg.merk .navy { fill: var(--accent); }
-  .wordmark svg.merk .oker { fill: var(--copper); }
+  /* Logokleuren zijn merkvast (uit het originele logo), los van de sitetokens */
+  .wordmark svg.merk .navy { fill: var(--merk-navy); stroke: var(--merk-navy); }
+  .wordmark svg.merk .oker { fill: #e0a32a; stroke: #e0a32a; }
   .wordmark .naamblok { display: grid; gap: 1px; }
   .wordmark .naam {
     font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em;
@@ -303,11 +307,11 @@
 <div class="wrap">
   <header class="top">
     <a class="wordmark" href="#">
-      <svg class="merk" viewBox="0 0 220 172" role="img" aria-label="Logo Mulder Holding">
-        <polygon class="navy" points="8,6 64,34 64,148 8,166"/>
-        <polygon class="oker" points="76,44 104,62 104,150 76,168"/>
-        <polygon class="oker" points="144,44 116,62 116,150 144,168"/>
-        <polygon class="navy" points="212,6 156,34 156,148 212,166"/>
+      <svg class="merk" viewBox="-6 -6 232 184" role="img" aria-label="Logo Mulder Holding">
+        <polygon class="navy" points="4,4 46,34 46,162 4,168" stroke-width="10" stroke-linejoin="round"/>
+        <polygon class="oker" points="57,46 92,80 92,162 57,124" stroke-width="6" stroke-linejoin="round"/>
+        <polygon class="oker" points="163,46 128,80 128,162 163,124" stroke-width="6" stroke-linejoin="round"/>
+        <polygon class="navy" points="216,4 174,34 174,162 216,168" stroke-width="10" stroke-linejoin="round"/>
       </svg>
       <span class="naamblok">
         <span class="naam">MULDER&nbsp;HOLDING</span>
