@@ -1,0 +1,392 @@
+<title>Mulder Holding</title>
+<style>
+  @font-face {
+    font-family: 'Bricolage Grotesque';
+    font-style: normal;
+    font-weight: 700;
+    src: url(data:font/woff2;base64,__BRICO__) format('woff2');
+  }
+  @font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400 600;
+    src: url(data:font/woff2;base64,__PLEXSANS__) format('woff2');
+  }
+  @font-face {
+    font-family: 'IBM Plex Mono';
+    font-style: normal;
+    font-weight: 400;
+    src: url(data:font/woff2;base64,__PLEXMONO__) format('woff2');
+  }
+
+  :root {
+    color-scheme: light;
+    --paper: #f4f5f7;
+    --card: #ffffff;
+    --ink: #131c2b;
+    --ink-2: #47546a;
+    --muted: #76829a;
+    --line: #dde1e8;
+    --line-strong: #c2cad6;
+    --accent: #1a3a63;
+    --accent-ink: #122c4e;
+    --accent-soft: #e7edf5;
+    --copper: #b58a10;
+    --copper-soft: #f7edd2;
+    --raster: rgba(26, 58, 99, 0.055);
+    --shadow: 0 1px 2px rgba(19, 28, 43, 0.05), 0 10px 30px rgba(19, 28, 43, 0.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #0c1220;
+      --card: #141d2e;
+      --ink: #eef1f6;
+      --ink-2: #b3bdcc;
+      --muted: #7e8aa0;
+      --line: #243149;
+      --line-strong: #33425e;
+      --accent: #7fa9dd;
+      --accent-ink: #a3c4ea;
+      --accent-soft: #16233a;
+      --copper: #dcaf3f;
+      --copper-soft: #2c230e73;
+      --raster: rgba(127, 169, 221, 0.06);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #0c1220;
+    --card: #141d2e;
+    --ink: #eef1f6;
+    --ink-2: #b3bdcc;
+    --muted: #7e8aa0;
+    --line: #243149;
+    --line-strong: #33425e;
+    --accent: #7fa9dd;
+    --accent-ink: #a3c4ea;
+    --accent-soft: #16233a;
+    --copper: #dcaf3f;
+    --copper-soft: #2c230e73;
+    --raster: rgba(127, 169, 221, 0.06);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; margin: 0; }
+
+  body {
+    background:
+      linear-gradient(var(--raster) 1px, transparent 1px),
+      linear-gradient(90deg, var(--raster) 1px, transparent 1px),
+      var(--paper);
+    background-size: 28px 28px, 28px 28px, auto;
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---- Topbalk ---- */
+  header.top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 0 18px;
+  }
+  .wordmark { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+  .wordmark .blok {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: var(--accent); color: #f4f5f7;
+    display: grid; place-items: center;
+    font-family: 'Bricolage Grotesque', sans-serif; font-size: 19px; font-weight: 700;
+  }
+  .wordmark .naam {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em;
+  }
+  .top a.mail {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px;
+    color: var(--accent-ink); text-decoration: none;
+    border-bottom: 1px solid var(--line-strong); padding-bottom: 2px;
+  }
+  .top a.mail:hover { border-color: var(--accent); }
+
+  /* ---- Hero ---- */
+  .hero {
+    display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 48px; align-items: center;
+    padding: 64px 0 72px;
+  }
+  @media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding: 40px 0 48px; } }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--copper); margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: clamp(38px, 5.6vw, 58px);
+    line-height: 1.04; font-weight: 700; letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero p.sub {
+    margin-top: 22px; max-width: 46ch; font-size: 17.5px; color: var(--ink-2);
+  }
+  .cta-rij { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+  .knop {
+    display: inline-block; text-decoration: none;
+    font-weight: 600; font-size: 15px;
+    padding: 13px 24px; border-radius: 10px;
+  }
+  .knop.primair { background: var(--accent); color: #f4f5f7; }
+  .knop.primair:hover { background: var(--accent-ink); }
+  :root[data-theme="dark"] .knop.primair, :root:not([data-theme="light"]) .knop.primair { color: #0c1220; }
+  @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) .knop.primair { color: #f4f5f7; } }
+  .knop.stil { color: var(--accent-ink); border: 1px solid var(--line-strong); background: var(--card); }
+  .knop.stil:hover { border-color: var(--accent); }
+
+  /* ---- Rapportkaart in hero ---- */
+  .rapport {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    box-shadow: var(--shadow); overflow: hidden;
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;
+    transform: rotate(0.6deg);
+  }
+  .rapport .kop {
+    padding: 12px 18px; border-bottom: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: baseline;
+    color: var(--muted); letter-spacing: 0.06em; font-size: 11.5px;
+  }
+  .rapport .kop strong { color: var(--ink); font-weight: 400; }
+  .rapport .rij {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 10px 18px; border-bottom: 1px solid var(--line); color: var(--ink-2);
+  }
+  .rapport .rij .waarde { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .rapport .rij .waarde.plus { color: var(--accent-ink); }
+  .rapport .grafiek { padding: 14px 18px 6px; }
+  .rapport .stempel {
+    margin: 12px 18px 18px; display: inline-block;
+    border: 1.5px solid var(--copper); color: var(--copper);
+    padding: 5px 12px; border-radius: 6px;
+    letter-spacing: 0.08em; font-size: 11.5px;
+    transform: rotate(-1.2deg);
+    background: var(--copper-soft);
+  }
+
+  /* ---- Secties ---- */
+  section { padding: 30px 0 64px; }
+  .sectiekop { display: flex; align-items: baseline; gap: 16px; margin-bottom: 30px; }
+  .sectiekop h2 {
+    font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .sectiekop .lijn { flex: 1; height: 1px; background: var(--line-strong); }
+  .sectiekop .label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ---- Diensten: grootboekregels ---- */
+  .dienst {
+    display: grid; grid-template-columns: 110px minmax(0, 5fr) minmax(0, 4fr);
+    gap: 20px; padding: 26px 22px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 0;
+  }
+  .dienst + .dienst { border-top: none; }
+  .dienst:first-of-type { border-radius: 14px 14px 0 0; }
+  .dienst:last-of-type { border-radius: 0 0 14px 14px; }
+  .dienst:hover { background: var(--accent-soft); }
+  @media (max-width: 760px) { .dienst { grid-template-columns: 1fr; gap: 8px; } }
+
+  .dienst .tag {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--accent-ink);
+    border: 1px solid var(--line-strong); border-radius: 6px;
+    align-self: start; justify-self: start; padding: 3px 9px;
+    background: var(--paper);
+  }
+  .dienst h3 { font-size: 18.5px; font-weight: 600; margin-bottom: 6px; }
+  .dienst p { color: var(--ink-2); font-size: 15px; max-width: 52ch; }
+  .dienst .lever { font-size: 14px; color: var(--muted); align-self: center; }
+  .dienst .lever strong {
+    display: block; color: var(--ink-2); font-weight: 600; font-size: 13px;
+    font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.06em; margin-bottom: 4px;
+  }
+
+  /* ---- Werkwijze: echte volgorde, dus genummerd ---- */
+  .stappen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: stap; }
+  @media (max-width: 860px) { .stappen { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .stappen { grid-template-columns: 1fr; } }
+  .stap {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 20px; position: relative; box-shadow: var(--shadow);
+  }
+  .stap::before {
+    counter-increment: stap; content: counter(stap, decimal-leading-zero);
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--copper);
+    letter-spacing: 0.08em;
+  }
+  .stap h3 { font-size: 16.5px; font-weight: 600; margin: 8px 0 6px; }
+  .stap p { font-size: 14px; color: var(--ink-2); }
+
+  /* ---- Contact ---- */
+  .contact {
+    background: var(--accent); border-radius: 18px;
+    padding: 46px 40px; margin-bottom: 26px;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .contact h2 {
+    font-family: 'Bricolage Grotesque', sans-serif; font-size: 30px; font-weight: 700;
+    color: #f4f5f7; letter-spacing: -0.01em; text-wrap: balance; max-width: 22ch;
+  }
+  :root[data-theme="dark"] .contact h2 { color: #0c1220; }
+  .contact .knop.omgekeerd { background: var(--paper); color: var(--accent-ink); font-weight: 600; }
+  .contact .knop.omgekeerd:hover { transform: translateY(-1px); }
+
+  footer {
+    padding: 8px 0 40px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--muted);
+  }
+  footer a { color: var(--muted); }
+
+  /* ---- Beweging, met respect voor 'geen beweging'-instelling ---- */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero > * { animation: rijs 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+    .hero .rapport { animation-delay: 0.15s; }
+    @keyframes rijs { from { opacity: 0; transform: translateY(14px); } }
+    .spark-lijn { stroke-dasharray: 320; stroke-dashoffset: 320; animation: teken 1.6s 0.5s ease-out forwards; }
+    @keyframes teken { to { stroke-dashoffset: 0; } }
+  }
+  a:focus-visible, .knop:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <a class="wordmark" href="#">
+      <span class="blok">M</span>
+      <span class="naam">MULDER&nbsp;HOLDING</span>
+    </a>
+    <a class="mail" href="tel:+31621873648">06 21 87 36 48</a>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Advies &amp; automatisering voor het mkb</p>
+      <h1>Van onderbuik naar <span class="accent">onderbouwing</span>.</h1>
+      <p class="sub">
+        Mulder Holding helpt bedrijven hun processen te meten, te testen en te
+        automatiseren — met AI waar dat écht iets oplevert, en altijd met een
+        helder rapport op tafel.
+      </p>
+      <div class="cta-rij">
+        <a class="knop primair" href="tel:+31621873648">Bel 06 21 87 36 48</a>
+        <a class="knop stil" href="#diensten">Bekijk de diensten</a>
+      </div>
+    </div>
+
+    <div class="rapport" aria-label="Voorbeeld van een testrapport">
+      <div class="kop"><strong>TESTRAPPORT</strong><span>MH-2026-014</span></div>
+      <div class="rij"><span>Proces</span><span class="waarde">Orderverwerking</span></div>
+      <div class="rij"><span>Doorlooptijd nu</span><span class="waarde">3,4 uur</span></div>
+      <div class="rij"><span>Na automatisering</span><span class="waarde plus">12 min</span></div>
+      <div class="rij"><span>Foutmarge</span><span class="waarde plus">−87%</span></div>
+      <div class="grafiek">
+        <svg viewBox="0 0 300 64" width="100%" height="64" role="img" aria-label="Dalende doorlooptijd">
+          <line x1="0" y1="56" x2="300" y2="56" stroke="var(--line-strong)" stroke-width="1"/>
+          <polyline class="spark-lijn" points="4,10 46,16 88,14 130,24 172,22 214,38 256,46 296,50"
+            fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="296" cy="50" r="4" fill="var(--accent)"/>
+        </svg>
+      </div>
+      <span class="stempel">CONCLUSIE: AUTOMATISEERBAAR</span>
+    </div>
+  </section>
+
+  <section id="diensten">
+    <div class="sectiekop">
+      <h2>Diensten</h2>
+      <span class="lijn"></span>
+      <span class="label">WAT IK LEVER</span>
+    </div>
+
+    <div class="dienst">
+      <span class="tag">AI</span>
+      <div>
+        <h3>AI-automatiseringen</h3>
+        <p>Repeterend werk uit handen: van documentverwerking en e-mailafhandeling tot
+           rapportages die zichzelf schrijven. Gebouwd op wat er al staat, zonder alles
+           overhoop te halen.</p>
+      </div>
+      <div class="lever"><strong>JE KRIJGT</strong> Een werkende automatisering, veilig ingericht, met uitleg zodat je team ermee verder kan.</div>
+    </div>
+
+    <div class="dienst">
+      <span class="tag">ANALYSE</span>
+      <div>
+        <h3>Analyses</h3>
+        <p>Van losse cijfers naar een besluit. Ik breng data uit je systemen samen en
+           vertaal die naar conclusies waar je iets mee kunt — zonder jargon.</p>
+      </div>
+      <div class="lever"><strong>JE KRIJGT</strong> Een analyse met heldere conclusies en concrete aanbevelingen, in gewone taal.</div>
+    </div>
+
+    <div class="dienst">
+      <span class="tag">TEST</span>
+      <div>
+        <h3>Testrapportages</h3>
+        <p>Onafhankelijk testen van software, koppelingen en processen. Wat werkt, wat
+           breekt, en wat moet eerst — vastgelegd zodat iedereen hetzelfde beeld heeft.</p>
+      </div>
+      <div class="lever"><strong>JE KRIJGT</strong> Een testrapport met bevindingen, risico's en prioriteiten.</div>
+    </div>
+
+    <div class="dienst">
+      <span class="tag">PROCES</span>
+      <div>
+        <h3>Advisering bedrijfsprocessen</h3>
+        <p>Processen doorlichten: waar lekt tijd weg, waar ontstaan fouten, wat kan
+           slimmer. Praktisch advies dat rekening houdt met de mensen die het werk doen.</p>
+      </div>
+      <div class="lever"><strong>JE KRIJGT</strong> Een verbeterplan met stappen die je deze maand al kunt zetten.</div>
+    </div>
+  </section>
+
+  <section id="werkwijze">
+    <div class="sectiekop">
+      <h2>Werkwijze</h2>
+      <span class="lijn"></span>
+      <span class="label">VAN VRAAG TOT RESULTAAT</span>
+    </div>
+    <div class="stappen">
+      <div class="stap">
+        <h3>Kennismaken</h3>
+        <p>Een gesprek over waar het knelt. Gratis en zonder verplichtingen.</p>
+      </div>
+      <div class="stap">
+        <h3>Meten &amp; analyseren</h3>
+        <p>Ik kijk mee in het echte werk en leg vast hoe het proces nu loopt.</p>
+      </div>
+      <div class="stap">
+        <h3>Rapport &amp; advies</h3>
+        <p>Bevindingen en aanbevelingen op papier — besluitklaar.</p>
+      </div>
+      <div class="stap">
+        <h3>Bouwen &amp; borgen</h3>
+        <p>Automatisering of verbetering doorvoeren, en zorgen dat het blijft werken.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-bottom: 0;">
+    <div class="contact">
+      <h2>Benieuwd wat er in jouw processen te winnen valt?</h2>
+      <a class="knop omgekeerd" href="tel:+31621873648">Bel 06 21 87 36 48</a>
+    </div>
+    <footer>
+      <span>© 2026 Mulder Holding</span>
+      <a href="tel:+31621873648">06 21 87 36 48</a>
+    </footer>
+  </section>
+</div>
